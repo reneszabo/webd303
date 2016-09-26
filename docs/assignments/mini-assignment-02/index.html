@@ -110,7 +110,7 @@
   <div class="msg">
     <div class="message">
       <div class="bubble bubble-text">
-        <div class="message-user text-bold">
+        <div class="message-user">
           <strong></strong>
         </div>
         <div class="message-text">
@@ -143,6 +143,20 @@
     "Aenean sit amet erat nunc",
     "Eget porttitor lorem"
   ];
+  var randomNames = [
+    "Zhenli Ye Gon",
+    "Frank Lucas",
+    "Klaas Bruinsma",
+    "Ismael Zambada García",
+    "Manuel Noriega",
+    "Gilberto Rodriguez-Orejuela",
+    "Joaquín Guzmán Loera",
+    "Osiel Cárdenas Guillén",
+    "Amado Carrillo Fuentes",
+    "Pablo Emilio Escobar Gaviria",
+    "Pablo Emilio Escobar Gaviria",
+    "Pablo Emilio Escobar Gaviria"
+  ];
 
   $(document).ready(function(){
     addRandomMessage();
@@ -150,7 +164,7 @@
 
   function addRandomMessage(){
     console.log('generate message');
-    createMessage(randomMessages[Math.round((randomMessages.length-1)*Math.random())], 'message-in');
+    createMessage(randomMessages[Math.round((randomMessages.length-1)*Math.random())], 'message-in',randomNames[Math.round((randomNames.length-1)*Math.random())]);
     scrolldownPane();
     setTimeout(addRandomMessage,3000*Math.random());
   }
@@ -158,11 +172,14 @@
   function scrolldownPane() {
     $('#pane-messages').animate({ scrollTop: $('#pane-messages').prop("scrollHeight")}, 200);
   }
-  function createMessage(message, positionClass){
+  function createMessage(message, positionClass, name){
     var $template = $('#templates .msg').clone(true);
     $template.find('.message').addClass(positionClass);
     $template.find('.message-datetime').html(moment().format('LT'));
     $template.find('.message-text').html(message);
+    if(name !== undefined){
+      $template.find('.message-user strong').html(name);
+    }
     $('#message-list').append($template);
   }
 
