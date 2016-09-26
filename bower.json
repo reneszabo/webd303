@@ -1,0 +1,35 @@
+{
+  "name": "webd303",
+  "description": "Class Webd 303",
+  "main": "index.js",
+  "authors": [
+    "Rene Ramirez"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/reneszabo/webd303",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.4",
+    "components-font-awesome": "^4.6.3",
+    "moment": "^2.15.1"
+  },
+  "overrides": {
+    "components-font-awesome": {
+      "main": [
+        "scss/font-awesome.scss",
+        "fonts/FontAwesome.otf",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2"
+      ]
+    }
+  }
+}

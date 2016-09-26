@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/dest/css/vendor.css">
+  <link rel="stylesheet" href="/dest/css/assignments/mini-assignment-02/main.css">
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+<div id="chat" class="container">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper" class="pane">
+      <div class="">
+
+        <ul class="nav">
+          <li class="nav-item">
+            <div class="row">
+              <div class="col-md-3  offset-md-1 hidden-sm-down">
+                <img src="./img/pp.jpg" class="img-fluid img-circle" alt="avatar">
+              </div>
+              <div class="offset-sm-1  offset-md-0 col-md-8 ">
+                <div class="about">
+                  <div class="name">Aiden Logan</div>
+                  <div class="status">
+                    <i class="fa fa-circle offline"></i> left 7 mins ago
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <div class="row">
+              <div class="col-md-3 offset-md-1 hidden-sm-down">
+                <img src="./img/pp2.jpg" class="img-fluid img-circle" alt="avatar">
+              </div>
+              <div class="offset-sm-1 offset-md-0 col-md-8">
+                <div class="about">
+                  <div class="name">Viviana Hong</div>
+                  <div class="status">
+                    <i class="fa fa-circle online"></i> left 7 mins ago
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper" class="pane">
+      <header class="pane-header pane-chat-header">
+        <div class="chat-body">
+          <div class="chat-main">
+            <h2 class="chat-title" dir="auto">
+              <span class="emojitext ellipsify" title="Raul Roberto Ramirez Rivera">Raul Roberto Ramirez Rivera</span>
+            </h2>
+          </div>
+        </div>
+      </header>
+      <div class="pane-body">
+        <div class="pane-chat-messages">
+          <div class="pane-chat-empty"></div>
+          <div id="message-list" class="message-list">
+            <div class="msg">
+              <div class="message message-out">
+                <div class="bubble bubble-text">
+                  <div class="message-text">
+                    nice
+                  </div>
+                  <div class="message-meta">
+                    <span class="message-datetime">11:10 PM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="pane-footer">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for..." />
+              <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Send</button>
+      </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+</div>
+<div id="templates">
+  <div class="msg">
+    <div class="message">
+      <div class="bubble bubble-text">
+        <div class="message-user text-bold">
+          <strong></strong>
+        </div>
+        <div class="message-text">
+        </div>
+        <div class="message-meta">
+          <span class="message-datetime">6:19 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="/dest/js/jquery.js"></script>
+<script src="/dest/js/tether.js" ></script>
+<script src="/dest/js/moment.js" ></script>
+<script src="/dest/js/bootstrap.js" ></script>
+<script>
+  var randomMessages = [
+    "Lorem ipsum dolor sit amet",
+    "Consectetur adipiscing elit",
+    "Integer molestie lorem at massa",
+    "Facilisis in pretium nisl aliquet",
+    "Nulla volutpat aliquam velit",
+    "Phasellus iaculis neque",
+    "Purus sodales ultricies",
+    "Vestibulum laoreet porttitor sem",
+    "Ac tristique libero volutpat at",
+    "Faucibus porta lacus fringilla vel",
+    "Aenean sit amet erat nunc",
+    "Eget porttitor lorem"
+  ];
+
+  $(document).ready(function(){
+    addRandomMessage();
+  });
+
+  function addRandomMessage(){
+    console.log('generate message');
+    var $template = $('#templates .msg').clone(true);
+    $template.find('.message').addClass('message-in');
+    $template.find('.message-datetime').html(moment().format('LT'));
+    $template.find('.message-text').html(randomMessages[Math.round((randomMessages.length-1)*Math.random())]);
+    $('#message-list').append($template);
+    setTimeout(addRandomMessage,3000*Math.random());
+  }
+
+</script>
+</body>
+</html>

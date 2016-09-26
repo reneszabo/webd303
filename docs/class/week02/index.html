@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class="container text-center">
+  <div class="col-md-6 col-md-offset-3">
+    <legend>Week 2 - What is your age ? - Loop functions and scopes </legend>
+    <button id="btnStart" type="button" class="btn btn-info">START AGE INTERROGATION</button>
+  </div>
+  <div class="col-md-6">
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+  $(document).on('click', '#btnStart', function () {
+    askAgeProgram();
+  });
+  function askAgeProgram(){
+    var age = prompt('what is your age?');
+    var outputString = "You are old enough to:";
+    if(age=='' || isNaN(age*1)){
+      outputString="ERROR: you need to enteryour age";
+    }else{
+      if(age>=16){
+
+        if(age>=16){
+          outputString+="\n DRIVE";
+        }
+        if(age>=18){
+          outputString+="\n VOTE";
+        }
+
+        if(age>=19){
+          outputString+="\n DRINK";
+        }
+      }else{
+        outputString+="\n NOTHING";
+      }
+    }
+    alert(outputString);
+    if (confirm('wanna go again?')) {
+      askAgeProgram();
+    }
+  }
+</script>
+</body>
+</html>

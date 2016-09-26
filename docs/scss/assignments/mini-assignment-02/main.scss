@@ -1,0 +1,177 @@
+$color-primary: #303641;
+$green: #86BB71;
+$blue: #94C2ED;
+$orange: #E38968;
+$gray: #92959E;
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+  overflow-x: hidden;
+}
+
+/* Toggle Styles */
+
+#wrapper {
+  position: relative;
+  transition: all 0.5s ease;
+  height: calc(100% - 38px);
+  top: 19px;
+  display: flex;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 2px 5px 0 rgba(0,0,0,.2);
+  border-radius: 3px;
+}
+
+
+#sidebar-wrapper {
+  background-color: $color-primary;
+  flex-direction: column;
+  position: relative;
+  width: 30%;
+  color: white;
+  .nav{
+    margin-top: 15px;
+    .nav-item{
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+    }
+  }
+  .status {
+    color: $gray;
+    font-size: 10px;
+    .online, .offline, .me {
+      margin-right: 3px;
+      font-size: 10px;
+    }
+    .online {
+      color: $green;
+    }
+
+    .offline {
+      color: $orange;
+    }
+
+    .me {
+      color: $blue;
+    }
+  }
+}
+
+
+#page-content-wrapper {
+  background-color: #e5ddd5;
+  flex-direction: column;
+  position: relative;
+  width: 70%;
+
+  .pane-chat-messages{
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 100;
+    box-sizing: border-box;
+    transition: background .3s ease-out .1s;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    .pane-chat-empty{
+      flex: 1 1 auto;
+      min-height: 12px;
+    }
+    .message-list{
+      flex: 0 0 auto;
+      padding-bottom: 8px;
+      transition: padding .3s cubic-bezier(.69,0,.79,.14);
+      .msg{
+        padding-left: 9%;
+        padding-right: 9%;
+        margin-bottom: 12px;
+        position: relative;
+        &::after{
+          content: '';
+          display: table;
+          clear: both;
+        }
+        .message{
+          max-width: 65%;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          &.message-out{
+            background-color: #dcf8c6;
+            float: right;
+            border-radius: 7.5px;
+            position: relative;
+            box-shadow: 0 1px .5px rgba(0,0,0,.13);
+          }
+          &.message-in{
+            background-color: #ffffff;
+            border-radius: 7.5px;
+            position: relative;
+            box-shadow: 0 1px .5px rgba(0,0,0,.13);
+            float: left;
+          }
+          .bubble{
+            padding: 6px 7px 8px 9px;
+            font-size: 13.6px;
+            .message-text{
+              position: relative;
+              line-height: 19px;
+              word-wrap: break-word;
+              color: #262626;
+              font-family: 'Open Sans',sans-serif;
+              &::after{
+                content: " \00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+                display: inline;
+              }
+            }
+            .message-meta{
+              bottom: 3px;
+              right: 7px;
+              position: absolute;
+              height: 15px;
+              font-size: 11px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.pane {
+  display: flex;
+  overflow: hidden;
+  .pane-header{
+    order: 1;
+    position: relative;
+    padding: 10px;
+    padding-left: 16px;
+    padding-right: 15px;
+    display: flex;
+    height: 59px;
+    width: 100%;
+    background-color: #eee;
+    z-index: 1000;
+  }
+  .pane-body{
+    flex: 1 1 0;
+    position: relative;
+    order: 2;
+    z-index: 1;
+  }
+  .pane-footer{
+    background-color: #eee;
+    order: 3;
+    position: relative;
+    flex: none;
+    width: 100%;
+  }
+}
+
