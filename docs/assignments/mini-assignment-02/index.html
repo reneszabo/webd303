@@ -60,7 +60,7 @@
     </div>
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->
-    <div id="page-content-wrapper" class="pane">
+    <div id="page-content-wrapper" class="pane  ">
       <header class="pane-header pane-chat-header">
         <div class="chat-body">
           <div class="chat-main">
@@ -70,22 +70,10 @@
           </div>
         </div>
       </header>
-      <div class="pane-body">
+      <div class="pane-body ">
         <div id="pane-messages" class="pane-chat-messages">
           <div class="pane-chat-empty"></div>
           <div id="message-list" class="message-list">
-            <div class="msg">
-              <div class="message message-out">
-                <div class="bubble bubble-text">
-                  <div class="message-text">
-                    nice
-                  </div>
-                  <div class="message-meta">
-                    <span class="message-datetime">11:10 PM</span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -94,9 +82,7 @@
           <div class="col-lg-12">
             <div class="input-group">
               <input id="message-input" type="text" class="form-control" placeholder="Send message to the group ..." />
-              <span  class="input-group-btn">
-        <button id="message-button" class="btn btn-secondary" type="button">Send</button>
-      </span>
+              <span  class="input-group-btn"><button id="message-button" class="btn btn-secondary" type="button">Send</button></span>
             </div>
           </div>
         </div>
@@ -106,7 +92,7 @@
 
   </div>
 </div>
-<div id="templates">
+<div id="templates" class="hidden-xs-up">
   <div class="msg">
     <div class="message">
       <div class="bubble bubble-text">
@@ -188,6 +174,12 @@
     if(message!== undefined && message!==''){
       $('#message-input').val('');
       createMessage(message, 'message-out');
+      if(message.indexOf("police") >= 0){
+        $('#message-list').addClass('police');
+      }
+      if(message.indexOf("police gone") >= 0){
+        $('#message-list').removeClass('police');
+      }
     }
     scrolldownPane();
   }

@@ -3,11 +3,33 @@ $green: #86BB71;
 $blue: #94C2ED;
 $orange: #E38968;
 $gray: #92959E;
-/*!
- * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
+
+$red-border: #ee2819;
+$red-background: #ff3c2d;
+$red-shadow: #ff4444;
+
+$blue-border: #139eff;
+$blue-background: #66d2ff;
+$blue-shadow: #0078ff;
+$default-time: 800ms;
+/* MIXINS */
+
+@mixin lightoff{
+  background-color: white;
+  box-shadow: 0px 0px 0px 0px #000;
+  border: 1px solid #111;
+  opacity: 0.2;
+}
+
+@mixin lighton($border-color, $background-color, $shadow-color){
+  border: 1px solid $border-color;
+  background-color: $background-color;
+  box-shadow: 0px 0px 100px 25px $shadow-color;
+  opacity: 1;
+}
+
+
+
 
 body {
   overflow-x: hidden;
@@ -179,3 +201,64 @@ body {
   }
 }
 
+/* RED/BLUE LIGHTS */
+
+.police .message-out{
+  animation-duration: $default-time;
+  animation-name: strobe-blue;
+  animation-iteration-count: infinite;
+}
+
+.police .message-in{
+  animation-duration: $default-time;
+  animation-name: strobe-red;
+  animation-iteration-count: infinite;
+}
+
+@keyframes strobe-blue {
+  0%, 25%    {
+    @include lightoff;
+  }
+  28%, 50%   {
+    @include lighton($blue-border,$blue-background,$blue-shadow);
+  }
+  52%, 55%   {
+    @include lightoff;
+  }
+  57%, 69%   {
+    @include lighton($blue-border,$blue-background,$blue-shadow);
+  }
+  70%, 71%   {
+    @include lightoff;
+  }
+  72%, 75%   {
+    @include lighton($blue-border,$blue-background,$blue-shadow);
+  }
+  77%, 100%  {
+    @include lightoff;
+  }
+}
+
+@keyframes strobe-red {
+  0%, 25%    {
+    @include lightoff;
+  }
+  28%, 50%   {
+    @include lighton($red-border,$red-background,$red-shadow);
+  }
+  52%, 55%   {
+    @include lightoff;
+  }
+  57%, 69%   {
+    @include lighton($red-border,$red-background,$red-shadow);
+  }
+  70%, 71%   {
+    @include lightoff;
+  }
+  72%, 75%   {
+    @include lighton($red-border,$red-background,$red-shadow);
+  }
+  77%, 100%  {
+    @include lightoff;
+  }
+}
