@@ -159,6 +159,10 @@ body {
     width: 100%;
     background-color: #eee;
     z-index: 1000;
+    h2{
+      font-size: 16px;
+      margin-top: 8px;
+    }
   }
   .pane-body{
     flex: 1 1 0;
