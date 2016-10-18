@@ -18,6 +18,11 @@
     h1,p{
       text-align: center;
     }
+    span{
+      display: block;
+      width: 100px;
+      margin-left: -10px;
+    }
   </style>
 </head>
 <body>
@@ -27,8 +32,9 @@
   <div class="track"></div>
   <ul class="dropdown"><li></li></ul>
   <input id="colorSelected" type="hidden" class="colorInput"/>
+  <span>click me</span>
 </div>
-<p>Open color revicer <a href="display">here</a></p>
+<p>Open color revicer <a href="display" target='_blank' >here</a></p>
 <script src="http://ramirez-portfolio.com/samples/color/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="js/tinycolorpicker.js"></script>
