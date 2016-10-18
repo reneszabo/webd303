@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Picker</title>
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+  <link rel="stylesheet" href="css/tinycolorpicker.css">
+  <style>
+    html,body{
+      font-family: 'Abel', serif;
+    }
+    h1{
+      font-weight: 100;
+    }
+    p{
+      margin-top: 80px;
+    }
+    h1,p{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<h1>Broadcast Color Picker Emitter</h1>
+<div id="colorPicker">
+  <a class="color"><div class="colorInner"></div></a>
+  <div class="track"></div>
+  <ul class="dropdown"><li></li></ul>
+  <input id="colorSelected" type="hidden" class="colorInput"/>
+</div>
+<p>Open color revicer <a href="display">here</a></p>
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="js/tinycolorpicker.js"></script>
+<script type="text/javascript">
+  var socket = io();
+  $(function(){
+    var $box = $('#colorPicker');
+    $box.tinycolorpicker();
+  });
+  $('#colorSelected').on('change',function(){
+    socket.emit('color',$(this).val() );
+  });
+</script>
+</body>
+</html>

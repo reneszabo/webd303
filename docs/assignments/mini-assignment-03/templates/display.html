@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color</title>
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+  <style>
+    html,body{
+      height: 100%;
+      font-family: 'Abel', serif;
+    }
+    body{
+      transition: background-color 2s ease;
+    }
+    h1{
+      transition: color 2s ease;
+      font-weight: 100;
+      text-align: center;
+    }
+  </style>
+</head>
+<body id="body">
+<h1>Broadcast Color Picker Reciver</h1>
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+  var socket = io();
+  socket.on('color', function(msg){
+    $('#body').css({"background-color": msg});
+    if(msg==="#000000"){
+      $('h1').css('color',"#FFFFFF");
+    }else{
+      $('h1').css('color',"#000000");
+    }
+  });
+</script>
+</body>
+</html>
