@@ -6,7 +6,6 @@
   <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
   <style>
     html,body{
-      height: 100%;
       font-family: 'Abel', serif;
     }
     body{
@@ -21,10 +20,10 @@
 </head>
 <body id="body">
 <h1>Broadcast Color Picker Reciver</h1>
-<script src="/socket.io/socket.io.js"></script>
+<script src="http://ramirez-portfolio.com/samples/color/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script type="text/javascript">
-  var socket = io();
+  var socket = io("http://ramirez-portfolio.com:8888");
   socket.on('color', function(msg){
     $('#body').css({"background-color": msg});
     if(msg==="#000000"){

@@ -29,11 +29,11 @@
   <input id="colorSelected" type="hidden" class="colorInput"/>
 </div>
 <p>Open color revicer <a href="display">here</a></p>
-<script src="/socket.io/socket.io.js"></script>
+<script src="http://ramirez-portfolio.com/samples/color/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="js/tinycolorpicker.js"></script>
 <script type="text/javascript">
-  var socket = io();
+  var socket = io("http://ramirez-portfolio.com:8888");
   $(function(){
     var $box = $('#colorPicker');
     $box.tinycolorpicker();
